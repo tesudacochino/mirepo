@@ -10,10 +10,20 @@ jobs:
     # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idruns-on
     runs-on: ubuntu-latest
     steps:
-      - name: my-step
+      - name: Hello
         run: echo "Hello World!"
   
       - name: Checkout
         uses: actions/checkout@v3
+      
+      - name: Install Go
+        uses: actions/setup-go@v3
         with:
-          path: main
+          go-version: '1.16.0-beta.1' # The Go version to download (if necessary) and use.
+        run: go version
+
+      - name: Test test
+        run: go test ./...
+
+      - name: Creamos imagen de Docker
+        run: docker build -t goimage .
