@@ -5,7 +5,7 @@ on: push
 # Listado de jobs
 jobs:
   # ID del job. Cada job se ejecuta en una máquina nueva
-  my-job:
+ Generar-Imagen:
     # Tipo de máquina. Puede ser de Github o un self-hosted runner:
     # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idruns-on
     runs-on: ubuntu-latest
