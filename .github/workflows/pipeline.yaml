@@ -36,6 +36,6 @@ jobs:
         with:
           context: .
           platform: linux/amd64
-          push: false
+          push: true
           tags: ghcr.io/tesudacochino/mirepo:${{github.sha}}
 
