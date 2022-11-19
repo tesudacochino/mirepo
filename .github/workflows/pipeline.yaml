@@ -24,5 +24,17 @@ jobs:
       - name: Test test
         run: go test ./...
 
-      - name: Creamos imagen de Docker
-        run: docker build -t goimage .
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: $GITHUB_ACTOR
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push@v3
+        with:
+          context: .
+          platform: linux/amd64
+          push: false
+          tags: ghcr.io/tesudacochino/mirepo:${{github.sha}}
+
