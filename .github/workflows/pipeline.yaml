@@ -31,7 +31,8 @@ jobs:
           username: $GITHUB_ACTOR
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and push@v3
+      - name: Build and push
+        uses: docker/build-push-action@v3
         with:
           context: .
           platform: linux/amd64
